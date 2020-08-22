@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/room"
+        android:icon="@drawable/ic_baseline_meeting_room_24"
+        android:title="会议室" />
+    <item
+        android:id="@+id/message"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="消息" />
+    <item
+        android:id="@+id/contact"
+        android:icon="@drawable/ic_baseline_group_24"
+        android:title="通讯录" />
+    <item
+        android:id="@+id/me"
+        android:icon="@drawable/ic_baseline_perm_identity_24"
+        android:title="我的" />
+</menu>
