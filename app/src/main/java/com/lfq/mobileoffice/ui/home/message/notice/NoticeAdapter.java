@@ -1,4 +1,4 @@
-package com.lfq.mobileoffice.ui.notice;
+package com.lfq.mobileoffice.ui.home.message.notice;
 
 import android.annotation.SuppressLint;
 import android.view.View;
@@ -15,11 +15,14 @@ import com.lfq.mobileoffice.data.result.Notice;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class RecyclerAdapter extends SimpleRecyclerAdapter<Notice, RecyclerAdapter.ViewHolder> {
+/**
+ * 公告列表适配器
+ */
+class NoticeAdapter extends SimpleRecyclerAdapter<Notice, NoticeAdapter.ViewHolder> {
     @SuppressLint("SimpleDateFormat")
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/M/d hh:mm");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/M/d HH:mm");
 
-    public RecyclerAdapter(Base base) {
+    public NoticeAdapter(Base base) {
         super(base);
     }
 

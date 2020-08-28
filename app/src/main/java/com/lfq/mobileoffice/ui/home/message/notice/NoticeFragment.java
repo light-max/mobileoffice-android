@@ -1,4 +1,4 @@
-package com.lfq.mobileoffice.ui.notice;
+package com.lfq.mobileoffice.ui.home.message.notice;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,13 +13,14 @@ import com.lfq.mobileoffice.data.result.NoticePager;
 import com.lfq.mobileoffice.logger.LoggerName;
 import com.lfq.mobileoffice.net.Api;
 import com.lfq.mobileoffice.net.Net;
+import com.lfq.mobileoffice.ui.notice.NoticeDetailsActivity;
 
 /**
  * 公告列表activity
  */
 @LoggerName("公告")
-public class NoticeFragment extends BaseFragment {
-    private RecyclerAdapter adapter;
+public class NoticeFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+    private NoticeAdapter adapter;
 
     @Override
     public int getViewResource() {
@@ -29,7 +30,7 @@ public class NoticeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         // 初始化RecyclerView
-        adapter = new RecyclerAdapter(this);
+        adapter = new NoticeAdapter(this);
 
         // 点击某一项公告
         adapter.setOnItemClickListener((data, position) ->
@@ -39,7 +40,7 @@ public class NoticeFragment extends BaseFragment {
         // 上拉加载更多
         adapter.setOnLoadMoreListener(() -> {
             logger.info("加载更多");
-            Api.noticesNextPage(map("pager"))
+            Api.noticesPage(map("pager"))
                     .success((Net.OnSuccess<NoticePager>) noticePager -> {
                         map("pager", noticePager.getPager());
                         adapter.getData().addAll(noticePager.getData());
@@ -48,21 +49,18 @@ public class NoticeFragment extends BaseFragment {
                     }).run();
         });
 
-        // 初始化下拉刷新控件
-        SwipeRefreshLayout.OnRefreshListener refreshListener = () -> {
-            logger.info("开始重新加载");
-            Api.noticesNextPage(null)
-                    .success((Net.OnSuccess<NoticePager>) noticePager -> {
-                        map("pager", noticePager.getPager());
-                        adapter.setData(noticePager.getData());
-                        adapter.notifyDataSetChanged();
-                        swipe(false);
-                        logger.info("重新加载成功");
-                    }).run();
-        };
-        swipe().setOnRefreshListener(refreshListener);
-
         // 初始化加载
-        refreshListener.onRefresh();
+        onRefresh();
+    }
+
+    @Override
+    public void onRefresh() {
+        Api.noticesPage(null).start(() -> logger.info("新的加载"))
+                .success((Net.OnSuccess<NoticePager>) noticePager -> {
+                    map("pager", noticePager.getPager());
+                    adapter.setData(noticePager.getData());
+                    adapter.notifyDataSetChanged();
+                    logger.info("重新加载成功");
+                }).run();
     }
 }

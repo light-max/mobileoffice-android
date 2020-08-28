@@ -6,10 +6,12 @@ import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.data.LoginEmployeeData;
 import com.lfq.mobileoffice.data.result.Employee;
+import com.lfq.mobileoffice.data.result.Equipment;
 import com.lfq.mobileoffice.data.result.Notice;
 import com.lfq.mobileoffice.data.result.NoticePager;
 import com.lfq.mobileoffice.data.result.Pager;
 import com.lfq.mobileoffice.data.result.Room;
+import com.lfq.mobileoffice.data.result.RoomApplyPager;
 import com.lfq.mobileoffice.data.result.RoomPager;
 
 /**
@@ -37,7 +39,7 @@ public class Api {
      *
      * @param currentPager 当前分页数据
      */
-    public static Net.Builder roomsNextPage(@Nullable Pager currentPager) {
+    public static Net.Builder roomsPage(@Nullable Pager currentPager) {
         Net.Builder builder = Net.builder().method(Net.GET)
                 .typeOf(RoomPager.class)
                 .handler(new Handler())
@@ -66,7 +68,7 @@ public class Api {
      *
      * @param currentPager 当前分页数据
      */
-    public static Net.Builder noticesNextPage(@Nullable Pager currentPager) {
+    public static Net.Builder noticesPage(@Nullable Pager currentPager) {
         Net.Builder builder = Net.builder().method(Net.GET)
                 .typeOf(NoticePager.class)
                 .handler(new Handler())
@@ -88,5 +90,84 @@ public class Api {
                 .handler(new Handler())
                 .url("/notice/{noticeId}")
                 .path("noticeId", noticeId);
+    }
+
+    /**
+     * 请求这个会议室下所有的设备
+     *
+     * @param roomId 会议室id
+     */
+    public static Net.Builder equipments(int roomId) {
+        return Net.builder().method(Net.GET)
+                .typeListOf(Equipment.class)
+                .handler(new Handler())
+                .url("/equipment/list")
+                .param("roomId", roomId);
+    }
+
+    /**
+     * 提交会议室使用申请
+     *
+     * @param roomId 会议室id
+     * @param start  开始时间
+     * @param end    结束时间
+     * @param des    附加消息
+     */
+    public static Net.Builder postRoomApply(int roomId, long start, long end, String des) {
+        Net.Data data = new Net.Data()
+                .addParam("roomId", roomId)
+                .addParam("start", start)
+                .addParam("end", end)
+                .addParam("des", des);
+        return Net.builder().method(Net.POST)
+                .handler(new Handler())
+                .url("/apply/room/post")
+                .data(data);
+    }
+
+    /**
+     * 分页获取某个会议室申请记录列表
+     *
+     * @param pager  当前分页
+     * @param roomId 会议室id
+     */
+    public static Net.Builder roomApplyPage(@Nullable Pager pager, int roomId) {
+        Net.Builder builder = Net.builder().method(Net.GET)
+                .typeOf(RoomApplyPager.class)
+                .handler(new Handler())
+                .url("/apply/room/toroom/list/{currentPage}")
+                .param("roomId", roomId);
+        if (pager != null) {
+            builder.path("currentPage", pager.getCurrentPage() + 1);
+        }
+        return builder;
+    }
+
+    /**
+     * 分页获取"我的"的会议室申请记录列表
+     *
+     * @param pager 当前分页
+     */
+    public static Net.Builder roomApplyPage(@Nullable Pager pager) {
+        Net.Builder builder = Net.builder().method(Net.GET)
+                .typeOf(RoomApplyPager.class)
+                .handler(new Handler())
+                .url("/apply/room/list/{currentPage}");
+        if (pager != null) {
+            builder.path("currentPage", pager.getCurrentPage() + 1);
+        }
+        return builder;
+    }
+
+    /**
+     * 分页获取"我的"待受理的会议室申请记录列表<br>
+     * 一次性加载完所有申请记录, 不需要分页
+     */
+    public static Net.Builder roomApplyPending() {
+        return Net.builder().method(Net.GET)
+                .typeOf(RoomApplyPager.class)
+                .handler(new Handler())
+                .url("/apply/room/list/")
+                .param("status", 1);
     }
 }

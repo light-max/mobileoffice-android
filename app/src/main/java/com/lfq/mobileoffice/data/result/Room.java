@@ -11,12 +11,14 @@ public class Room {
      * name : 会议室1
      * location :
      * capacity : 1
+     * currentApplyId : 0
      */
 
     private int id;
     private String name;
     private String location;
     private int capacity;
+    private long currentApplyId;
 
     public int getId() {
         return id;
@@ -50,6 +52,14 @@ public class Room {
         this.capacity = capacity;
     }
 
+    public long getCurrentApplyId() {
+        return currentApplyId;
+    }
+
+    public void setCurrentApplyId(long currentApplyId) {
+        this.currentApplyId = currentApplyId;
+    }
+
     @NotNull
     @Override
     public String toString() {
@@ -58,6 +68,7 @@ public class Room {
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", capacity=" + capacity +
+                ", currentApplyId=" + currentApplyId +
                 '}';
     }
 }

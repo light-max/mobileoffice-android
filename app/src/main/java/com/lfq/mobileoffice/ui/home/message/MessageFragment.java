@@ -6,13 +6,15 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.BaseFragment;
-import com.lfq.mobileoffice.ui.notice.NoticeFragment;
+import com.lfq.mobileoffice.ui.home.message.notice.NoticeFragment;
+import com.lfq.mobileoffice.ui.home.message.roomapply.MeRoomApplyFragment;
 
 /**
  * 消息fragment
@@ -26,7 +28,7 @@ public class MessageFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         map(0, new NoticeFragment());
-        map(1, new NoticeFragment());
+        map(1, new MeRoomApplyFragment());
         ViewPager2 pager = get(R.id.pager);
         pager.setAdapter(new FragmentStateAdapter(requireActivity()) {
             @NonNull
@@ -43,8 +45,22 @@ public class MessageFragment extends BaseFragment {
         new TabLayoutMediator(get(R.id.tab), pager, (tab, position) -> {
             tab.setText(new String[]{
                     "公告",
-                    "公告"
+                    "会议室预约"
             }[position]);
         }).attach();
+
+        swipe(() -> {
+            refresh(map(0));
+            refresh(map(1));
+            swipe(false);
+        });
+    }
+
+    private void refresh(SwipeRefreshLayout.OnRefreshListener fragment) {
+        if (fragment instanceof Fragment) {
+            if (((Fragment) fragment).isVisible()) {
+                fragment.onRefresh();
+            }
+        }
     }
 }

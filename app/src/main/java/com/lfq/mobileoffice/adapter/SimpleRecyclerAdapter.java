@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lfq.mobileoffice.R;
@@ -57,6 +58,7 @@ public abstract class SimpleRecyclerAdapter<T, VH extends RecyclerView.ViewHolde
     public SimpleRecyclerAdapter(Base base, @IdRes int recyclerViewId) {
         view = base.get(recyclerViewId);
         view.addItemDecoration(new DividerItemDecoration(base.getContext(), DividerItemDecoration.VERTICAL));
+        view.setLayoutManager(new LinearLayoutManager(base.getContext()));
         view.setAdapter(this);
     }
 

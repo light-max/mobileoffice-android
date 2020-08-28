@@ -18,7 +18,7 @@ public class NoticeDetailsActivity extends BaseDetailsActivity<Notice> {
     @SuppressLint("SimpleDateFormat")
     @Override
     protected void onLoad(Notice notice) {
-        String time = Utils.dateFormat("YYYY年M月d hh:mm", notice.getCreateTime());
+        String time = Utils.dateFormat("YYYY年M月d HH:mm", notice.getCreateTime());
         text(R.id.title).setText(notice.getTitle());
         text(R.id.time).setText(time);
         text(R.id.content).setText(notice.getContent());

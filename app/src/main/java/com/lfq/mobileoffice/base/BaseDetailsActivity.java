@@ -26,6 +26,8 @@ import java.util.Objects;
  */
 public abstract class BaseDetailsActivity<T> extends BaseActivity {
 
+    private int targetId;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +37,13 @@ public abstract class BaseDetailsActivity<T> extends BaseActivity {
         RelativePath relativePath = aClass.getAnnotation(RelativePath.class);
         setContentView(Objects.requireNonNull(viewResource).value());
         Type type = ((ParameterizedType) Objects.requireNonNull(aClass.getGenericSuperclass())).getActualTypeArguments()[0];
+        targetId = getIntent().getIntExtra("targetId", 0);
         Net.builder().method(Net.GET)
                 .handler(new Handler())
                 .typeOf((Class<?>) type)
                 .url("{path}/{targetId}")
                 .path("path", Objects.requireNonNull(relativePath).value())
-                .path("targetId", getIntent().getIntExtra("targetId", 0))
+                .path("targetId", targetId)
                 .success(this::onLoad)
                 .run();
     }
@@ -62,6 +65,13 @@ public abstract class BaseDetailsActivity<T> extends BaseActivity {
         Intent intent = new Intent(context, getClass());
         intent.putExtra("targetId", targetId);
         context.startActivity(intent);
+    }
+
+    /**
+     * 获取详情id
+     */
+    public int getTargetId() {
+        return targetId;
     }
 
     /**

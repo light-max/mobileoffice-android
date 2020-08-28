@@ -18,7 +18,7 @@ import com.lfq.mobileoffice.ui.room.RoomDetailsActivity;
 @LoggerName("会议室")
 public class RoomFragment extends BaseFragment {
 
-    private RecyclerAdapter adapter;
+    private RoomAdapter adapter;
 
     @Override
     public int getViewResource() {
@@ -28,12 +28,12 @@ public class RoomFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         // 初始化RecyclerView
-        adapter = new RecyclerAdapter(this);
+        adapter = new RoomAdapter(this);
 
         // 设置下拉刷新事件
         SwipeRefreshLayout.OnRefreshListener refreshListener = () -> {
             logger.info("重新加载");
-            Api.roomsNextPage(null)
+            Api.roomsPage(null)
                     .end(() -> swipe(false))
                     .success((Net.OnSuccess<RoomPager>) roomPager -> {
                         adapter.setData(roomPager.getData());
@@ -47,7 +47,7 @@ public class RoomFragment extends BaseFragment {
         // 设置上拉加载更多
         adapter.setOnLoadMoreListener(() -> {
             logger.info("加载更多");
-            Api.roomsNextPage(map("pager"))
+            Api.roomsPage(map("pager"))
                     .success((Net.OnSuccess<RoomPager>) roomPager -> {
                         if (!roomPager.getData().isEmpty()) {
                             adapter.getData().addAll(roomPager.getData());
