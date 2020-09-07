@@ -9,6 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.BaseFragment;
+import com.lfq.mobileoffice.data.LoginEmployeeData;
 import com.lfq.mobileoffice.data.result.RoomApplyPager;
 import com.lfq.mobileoffice.net.Api;
 import com.lfq.mobileoffice.net.Net;
@@ -36,6 +37,9 @@ public class MeRAAllFragment extends BaseFragment implements SwipeRefreshLayout.
             }).run();
         });
         onRefresh();
+        LoginEmployeeData.getInstance().observe(this, employee -> {
+
+        });
     }
 
     @Override

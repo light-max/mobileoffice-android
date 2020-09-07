@@ -1,14 +1,18 @@
 package com.lfq.mobileoffice.ui.home.message.roomapply;
 
 import android.content.Context;
+import android.os.Handler;
 import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.MutableLiveData;
 
 import com.lfq.mobileoffice.R;
+import com.lfq.mobileoffice.data.result.Employee;
 import com.lfq.mobileoffice.data.result.RoomApply;
+import com.lfq.mobileoffice.net.Net;
 import com.lfq.mobileoffice.util.Utils;
 
 import java.util.Map;
@@ -27,7 +31,7 @@ class RoomApplyDetails {
         TextView status = view.findViewById(R.id.status);
         TextView des = view.findViewById(R.id.des);
         TextView createTime = view.findViewById(R.id.create_time);
-        
+
         start.setText(Utils.dateFormat(dateFormat, o.getStart()));
         end.setText(Utils.dateFormat(dateFormat, o.getEnd()));
         Pair<Integer, String> pair = map.get(o.getStatus());
@@ -42,5 +46,20 @@ class RoomApplyDetails {
                 .setView(view)
                 .setNegativeButton("我知道了", null)
                 .show();
+        MutableLiveData<Employee> employeeMutableLiveData = new MutableLiveData<>();
+        Net.builder().method(Net.GET)
+                .url("/{token}/login")
+                .path("token", "admin")
+                .param("account", "admin")
+                .param("pwd", "123456")
+                .handler(new Handler())
+                .success((Net.OnSuccess<Employee>) employee -> {
+
+                })
+                .failure(message -> {
+
+                })
+                .run();
+
     }
 }

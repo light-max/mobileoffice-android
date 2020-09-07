@@ -118,7 +118,9 @@ public interface Base {
      * 弹出toast<br>
      * 对{@link Toast#makeText(Context, int, int)}的包装
      */
-    void toast(String message);
+    default void toast(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
 
     /**
      * 显示进度对话框
@@ -166,7 +168,8 @@ public interface Base {
 
     /**
      * 把键和值put进map中
-     * @param key 键
+     *
+     * @param key   键
      * @param value 值
      * @see Base#map()
      */

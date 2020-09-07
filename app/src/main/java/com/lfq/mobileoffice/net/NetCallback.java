@@ -1,5 +1,6 @@
 package com.lfq.mobileoffice.net;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.widget.Toast;
 
@@ -9,6 +10,7 @@ import com.google.gson.Gson;
 import com.lfq.mobileoffice.data.result.Result;
 import com.lfq.mobileoffice.logger.Logger;
 import com.lfq.mobileoffice.logger.LoggerName;
+import com.lfq.mobileoffice.ui.login.LoginActivity;
 import com.lfq.mobileoffice.util.App;
 
 import org.jetbrains.annotations.NotNull;
@@ -87,6 +89,12 @@ class NetCallback implements Callback {
                 if (observe != null) {
                     observe.postValue(result.getData());
                 }
+            } else if (result.isAccessDenied()) {
+                // 拒绝访问，启动登陆activity
+                onFailure(result.getMessage());
+                Intent intent = new Intent(App.getContext(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                App.getContext().startActivity(intent);
             } else {
                 onFailure(result.getMessage());
             }

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -64,11 +63,6 @@ public class BaseFragment extends Fragment implements Base {
     @Override
     public Map<Object, Object> map() {
         return globalVariableMap;
-    }
-
-    @Override
-    public void toast(String message) {
-        Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

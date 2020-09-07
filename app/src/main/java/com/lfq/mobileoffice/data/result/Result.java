@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * 请求返回结果
+ *
  * @param <T>
  */
 public class Result<T> {
@@ -18,6 +19,15 @@ public class Result<T> {
     private String message;
     private boolean success;
     private T data;
+
+    /**
+     * 是否拒绝访问
+     *
+     * @return true: 是
+     */
+    public boolean isAccessDenied() {
+        return status == 403;
+    }
 
     public int getStatus() {
         return status;

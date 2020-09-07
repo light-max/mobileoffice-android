@@ -121,7 +121,28 @@ public class Net {
                             .setType(MultipartBody.FORM);
                     // 遍历data.param，把所有的key和value当做参数和参数名添加到body中
                     data.param.forEach((key, value) -> {
-                        builder.addFormDataPart(key, value.toString());
+                        // 如果是文件
+                        if (value instanceof File) {
+                            File file = (File) value;
+                            RequestBody body = RequestBody.create(file, MediaType.parse("application/octet-stream"));
+                            builder.addFormDataPart(key, file.getPath(), body);
+                        }
+                        // 如果是List
+                        else if (value instanceof List) {
+                            List<Object> list = (List<Object>) value;
+                            for (Object o : list) {
+                                builder.addFormDataPart(key, o.toString());
+                            }
+                        }
+                        // 如果是数组
+                        else if (value instanceof Object[]) {
+                            Object[] objects = (Object[]) value;
+                            for (Object o : objects) {
+                                builder.addFormDataPart(key, o.toString());
+                            }
+                        } else {
+                            builder.addFormDataPart(key, value.toString());
+                        }
                     });
                     body = builder.build();
                 }

@@ -5,14 +5,19 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.data.LoginEmployeeData;
+import com.lfq.mobileoffice.data.result.AFLType;
 import com.lfq.mobileoffice.data.result.Employee;
 import com.lfq.mobileoffice.data.result.Equipment;
 import com.lfq.mobileoffice.data.result.Notice;
 import com.lfq.mobileoffice.data.result.NoticePager;
 import com.lfq.mobileoffice.data.result.Pager;
+import com.lfq.mobileoffice.data.result.Resource;
 import com.lfq.mobileoffice.data.result.Room;
 import com.lfq.mobileoffice.data.result.RoomApplyPager;
 import com.lfq.mobileoffice.data.result.RoomPager;
+
+import java.io.File;
+import java.util.List;
 
 /**
  * 网络请求接口工具类
@@ -169,5 +174,52 @@ public class Api {
                 .handler(new Handler())
                 .url("/apply/room/list/")
                 .param("status", 1);
+    }
+
+    /**
+     * 查询请假类型
+     */
+    public static Net.Builder aflTypes() {
+        return Net.builder().method(Net.GET)
+                .handler(new Handler())
+                .typeListOf(AFLType.class)
+                .url("/leave/application/types");
+    }
+
+    /**
+     * 文件上传接口
+     *
+     * @param file 文件
+     */
+    public static Net.Builder fileUpload(File file) {
+        return Net.builder().method(Net.POST)
+                .typeOf(Resource.class)
+                .handler(new Handler())
+                .url("/employee/resource")
+                .param("file", file);
+    }
+
+    /**
+     * 文件删除接口
+     */
+    public static Net.Builder fileDelete(Resource resource) {
+        return Net.builder().method(Net.DELETE)
+                .handler(new Handler())
+                .url("/employee/resource/{resourceId}")
+                .path("resourceId", resource.getId());
+    }
+
+    /**
+     * 发送请假请求
+     */
+    public static Net.Builder postLeaveApplication(int type, String des, long start, long end, List<String> resource) {
+        return Net.builder().method(Net.POST)
+                .handler(new Handler())
+                .url("/leave/application/post")
+                .param("type", type)
+                .param("des", des)
+                .param("start", start)
+                .param("end", end)
+                .param("resource", resource);
     }
 }

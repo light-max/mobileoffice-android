@@ -1,5 +1,6 @@
 package com.lfq.mobileoffice.ui.login;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.CheckBox;
@@ -11,7 +12,6 @@ import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.BaseActivity;
 import com.lfq.mobileoffice.logger.LoggerName;
 import com.lfq.mobileoffice.net.Api;
-import com.lfq.mobileoffice.ui.home.HomeActivity;
 import com.lfq.mobileoffice.util.Utils;
 
 /**
@@ -19,6 +19,12 @@ import com.lfq.mobileoffice.util.Utils;
  */
 @LoggerName("登陆")
 public class LoginActivity extends BaseActivity {
+
+    /**
+     * {@link #startActivityForResult(Intent, int)}
+     */
+    public static final int LOGIN_REQUEST = 0xff01;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +69,9 @@ public class LoginActivity extends BaseActivity {
                             .putBoolean("remember", remember.isChecked())
                             .putBoolean("auto", auto.isChecked())
                             .apply();
-                    // 启动主页activity
-                    startActivity(HomeActivity.class);
+                    // 设置返回结果
+                    setResult(RESULT_OK);
+                    finish();
                     logger.info("登陆成功");
                 })
                 .failure((e) -> logger.info("登陆失败: " + e))

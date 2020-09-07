@@ -1,8 +1,11 @@
 package com.lfq.mobileoffice;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.base.BaseActivity;
 import com.lfq.mobileoffice.net.Api;
@@ -34,6 +37,7 @@ public class MainActivity extends BaseActivity {
                     .success(o -> {
                         startActivity(HomeActivity.class);
                         logger.info("自动登陆，登陆成功");
+                        finish();
                     })
                     .failure((e) -> {
                         startActivity(LoginActivity.class);
@@ -42,9 +46,21 @@ public class MainActivity extends BaseActivity {
                     .run();
         } else {
             new Handler().postDelayed(() -> {
-                startActivity(LoginActivity.class);
-                finish();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivityForResult(intent, LoginActivity.LOGIN_REQUEST);
             }, 1500);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        System.out.println(requestCode + "," + resultCode);
+        // 如果调用登陆activity登陆成功
+        if (requestCode == LoginActivity.LOGIN_REQUEST && resultCode == RESULT_OK) {
+            // 启动主页activity
+            startActivity(HomeActivity.class);
+        }
+        finish();
     }
 }
