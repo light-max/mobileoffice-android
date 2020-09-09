@@ -13,6 +13,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        MediaTypeUtil.init(context);
     }
 
     public static Context getContext() {

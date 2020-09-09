@@ -27,6 +27,11 @@ import okhttp3.RequestBody;
 public class Net {
     private static Net net = new Net();
     private OkHttpClient client;
+    /**
+     * mediaType的map对象, key:文件后缀名, value:MediaType字符串
+     * 需要初始化
+     */
+    public static Map<String, String> mediaType = new HashMap<>();
 
     public static final String baseUrl = "http://10.0.2.2:8080";
 //    public static final String baseUrl = "http://192.168.0.107:8080";
@@ -35,6 +40,28 @@ public class Net {
     public static final String GET = "GET";
     public static final String PUT = "PUT";
     public static final String DELETE = "DELETE";
+
+    /**
+     * 根据文件后缀名获取{@link MediaType}对象
+     *
+     * @param file 要判断类型的文件
+     */
+    private static MediaType getMediaType(File file) {
+        String name = file.getName();
+        int index = name.lastIndexOf('.');
+        if (index == -1) {
+            return MediaType.parse("application/octet-stream");
+        } else {
+            String s = name.substring(index + 1);
+            System.out.println(s);
+            String type = mediaType.get(s);
+            if (type == null) {
+                return MediaType.parse("application/octet-stream");
+            } else {
+                return MediaType.parse(type);
+            }
+        }
+    }
 
     /**
      * 构造函数，初始化OkHttpClient
@@ -124,7 +151,8 @@ public class Net {
                         // 如果是文件
                         if (value instanceof File) {
                             File file = (File) value;
-                            RequestBody body = RequestBody.create(file, MediaType.parse("application/octet-stream"));
+                            MediaType mediaType = getMediaType(file);
+                            RequestBody body = RequestBody.create(file, mediaType);
                             builder.addFormDataPart(key, file.getPath(), body);
                         }
                         // 如果是List
