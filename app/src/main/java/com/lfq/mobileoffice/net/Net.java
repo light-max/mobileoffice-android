@@ -4,6 +4,8 @@ import android.os.Handler;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.gson.Gson;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -53,7 +55,6 @@ public class Net {
             return MediaType.parse("application/octet-stream");
         } else {
             String s = name.substring(index + 1);
-            System.out.println(s);
             String type = mediaType.get(s);
             if (type == null) {
                 return MediaType.parse("application/octet-stream");
@@ -108,6 +109,8 @@ public class Net {
         private OnFailure failure;
         private OnStart start;
         private OnEnd end;
+
+        private Object jsonObject;
 
         /**
          * 执行网络请求
@@ -173,6 +176,12 @@ public class Net {
                         }
                     });
                     body = builder.build();
+                }
+                // 创建json对象的body
+                else if (jsonObject != null) {
+                    System.out.println(new Gson().toJson(jsonObject));
+                    MediaType mediaType = MediaType.parse("application/json");
+                    body = RequestBody.create(new Gson().toJson(jsonObject), mediaType);
                 }
                 // 创建什么都不带的body
                 else {
@@ -323,6 +332,18 @@ public class Net {
                 data = new Data();
             }
             data.addPath(key, value);
+            return this;
+        }
+
+        /**
+         * 设置请求参数为json对象<br>
+         * <b>优先级低于{@link #param(String, Object)},
+         * 使用{@link #param(String, Object)}后此方法不生效</b>
+         *
+         * @param o 任意实体类
+         */
+        public Builder json(Object o) {
+            this.jsonObject = o;
             return this;
         }
 

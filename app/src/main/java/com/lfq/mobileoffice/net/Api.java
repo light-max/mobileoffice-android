@@ -5,6 +5,8 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.data.LoginEmployeeData;
+import com.lfq.mobileoffice.data.request.BillItem;
+import com.lfq.mobileoffice.data.request.ReimbursementPostData;
 import com.lfq.mobileoffice.data.result.AFLType;
 import com.lfq.mobileoffice.data.result.Employee;
 import com.lfq.mobileoffice.data.result.Equipment;
@@ -210,9 +212,21 @@ public class Api {
     }
 
     /**
+     * 批量删除文件
+     */
+    public static Net.Builder filesDelete(List<String> resourceIds) {
+        return Net.builder().method(Net.DELETE)
+                .handler(new Handler())
+                .url("/employee/resource")
+                .param("ids", resourceIds);
+    }
+
+    /**
      * 发送请假请求
      */
-    public static Net.Builder postLeaveApplication(int type, String des, long start, long end, List<String> resource) {
+    public static Net.Builder postLeaveApplication(
+            int type, String des, long start, long end, List<String> resource
+    ) {
         return Net.builder().method(Net.POST)
                 .handler(new Handler())
                 .url("/leave/application/post")
@@ -221,5 +235,43 @@ public class Api {
                 .param("start", start)
                 .param("end", end)
                 .param("resource", resource);
+    }
+
+    /**
+     * 发送出差请求
+     */
+    public static Net.Builder postTravelApplication(
+            String des, String address, long start, long end, List<String> resource
+    ) {
+        return Net.builder().method(Net.POST)
+                .handler(new Handler())
+                .url("/travel/application/post")
+                .param("des", des)
+                .param("address", address)
+                .param("start", start)
+                .param("end", end)
+                .param("resource", resource);
+    }
+
+    /**
+     * 检查{@link BillItem}数据是否符合要求
+     */
+    public static Net.Builder checkBillItem(BillItem billItem) {
+        return Net.builder().method(Net.POST)
+                .handler(new Handler())
+                .url("/reimbursement/application/billitem/check")
+                .json(billItem);
+    }
+
+    /**
+     * 提交一个报销请求
+     *
+     * @param data 请求数据组合对象
+     */
+    public static Net.Builder postReimbursementApplication(ReimbursementPostData data) {
+        return Net.builder().method(Net.POST)
+                .handler(new Handler())
+                .url("/reimbursement/application/post")
+                .json(data);
     }
 }

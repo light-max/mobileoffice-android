@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".util.App"
@@ -28,8 +28,8 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="登陆"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.notice.NoticeDetailsActivity"
@@ -42,15 +42,24 @@
             android:label="会议室预约" />
         <activity
             android:name=".ui.leave.AskForLeaveActivity"
-            android:label="请假" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            android:label="请假">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".ui.fileselect.FileSelectActivity"
             android:label="文件选择" />
+        <activity
+            android:name=".ui.trip.BusinessTripActivity"
+            android:label="出差" />
+        <activity
+            android:name=".ui.reimbursement.ReimbursementActivity"
+            android:label="报销" />
+        <activity
+            android:name=".ui.billitemselect.BillItemSelectActivity"
+            android:label="添加账单项目" />
     </application>
 
 </manifest>

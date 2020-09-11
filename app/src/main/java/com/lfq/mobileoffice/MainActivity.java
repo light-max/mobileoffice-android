@@ -40,7 +40,8 @@ public class MainActivity extends BaseActivity {
                         finish();
                     })
                     .failure((e) -> {
-                        startActivity(LoginActivity.class);
+                        Intent intent = new Intent(this, LoginActivity.class);
+                        startActivityForResult(intent, LoginActivity.LOGIN_REQUEST);
                         logger.info("自动登陆，登陆失败: " + e);
                     })
                     .run();

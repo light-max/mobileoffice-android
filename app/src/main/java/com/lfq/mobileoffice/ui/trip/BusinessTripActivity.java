@@ -1,30 +1,24 @@
-package com.lfq.mobileoffice.ui.leave;
+package com.lfq.mobileoffice.ui.trip;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.fileselectactivity.BaseFileSelectActivity;
-import com.lfq.mobileoffice.data.result.AFLType;
 import com.lfq.mobileoffice.net.Api;
-import com.lfq.mobileoffice.net.Net;
 import com.lfq.mobileoffice.util.DateTimeSelectedEditText;
 import com.lfq.mobileoffice.util.Utils;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
- * 请假activity
+ * 出差申请activity
  */
-public class AskForLeaveActivity extends BaseFileSelectActivity {
+public class BusinessTripActivity extends BaseFileSelectActivity {
 
     private DateTimeSelectedEditText start;
     private DateTimeSelectedEditText end;
-    private Spinner spinner;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,45 +51,33 @@ public class AskForLeaveActivity extends BaseFileSelectActivity {
         start.setOnChangeListener(listener);
         end.setOnChangeListener(listener);
 
-        click(R.id.file, v -> super.selectFile());
-        click(R.id.picture, v -> super.picture());
+        click(R.id.file, v -> selectFile());
+        click(R.id.picture, v -> picture());
 
         click(R.id.post, v -> {
+            logger.info("pp");
             if (start.isSelected() && end.isSelected()) post();
         });
-
-        // 查询请假类型
-        spinner = get(R.id.spinner);
-        Api.aflTypes().success((Net.OnSuccess<List<AFLType>>) aflTypes -> {
-            map("aflTypes", aflTypes);
-            List<String> items = aflTypes.stream().map(AFLType::getName).collect(Collectors.toList());
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
-        }).run();
     }
 
     @Override
     protected int getViewResource() {
-        return R.layout.activity_ask_for_leave;
+        return R.layout.activity_business_trip;
     }
 
     /**
-     * 提交请求
+     * 提交出差请求
      */
     private void post() {
-        // 开始时间，结束时间，请假描述
+        // 获取出差基本信息
+        String des = Utils.string(text(R.id.des));
+        String address = Utils.string(text(R.id.address));
         long startMillisecond = start.getMillisecond();
         long endMillisecond = end.getMillisecond();
-        String des = Utils.string(text(R.id.des));
-        // 上传的文件
-        List<String> resources = super.getFileResourcesID();
-        // 请假类型
-        List<AFLType> aflTypes = map("aflTypes");
-        AFLType type = aflTypes.get(spinner.getSelectedItemPosition());
-        // 发送请求
-        Api.postLeaveApplication(type.getId(), des, startMillisecond,
-                endMillisecond, resources).success(o -> {
+        // 获取上传的文件
+        List<String> resourcesID = super.getFileResourcesID();
+        Api.postTravelApplication(des, address, startMillisecond,
+                endMillisecond, resourcesID).success(o -> {
             text(R.id.post, "提交成功，等待管理员审核...");
             get(R.id.post).setEnabled(false);
             disableSelected();

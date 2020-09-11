@@ -55,11 +55,6 @@ public class BaseActivity extends AppCompatActivity implements Base {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * 处理返回按钮的回调
-     */
-
-
     @Override
     public <T extends View> T get(int viewId) {
         return findViewById(viewId);
