@@ -14,6 +14,7 @@ import com.lfq.mobileoffice.data.result.Room;
 import com.lfq.mobileoffice.data.result.RoomApply;
 import com.lfq.mobileoffice.net.Api;
 import com.lfq.mobileoffice.net.Net;
+import com.lfq.mobileoffice.ui.home.message.MessageDetails;
 import com.lfq.mobileoffice.ui.room.RoomDetailsActivity;
 import com.lfq.mobileoffice.util.Utils;
 
@@ -21,14 +22,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 待审核的预约申请记录
+ * 会议室预约申请记录适配器
  */
-class RoomApplyAdapter extends SimpleRecyclerAdapter<RoomApply, RoomApplyAdapter.ViewHolder>
+public class AdapterMeRoomApply extends SimpleRecyclerAdapter<RoomApply, AdapterMeRoomApply.ViewHolder>
         implements SimpleRecyclerAdapter.OnItemClickListener<RoomApply> {
     private final Map<Integer, Pair<Integer, String>> status;
     private Base base;
 
-    public RoomApplyAdapter(Base base) {
+    public AdapterMeRoomApply(Base base) {
         super(base);
         this.base = base;
         status = new HashMap<>();
@@ -74,7 +75,7 @@ class RoomApplyAdapter extends SimpleRecyclerAdapter<RoomApply, RoomApplyAdapter
      */
     @Override
     public void onItemClick(RoomApply data, int position) {
-        RoomApplyDetails.showDialog(status, base.getContext(), data);
+        MessageDetails.roomApply(status, base.getContext(), data);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

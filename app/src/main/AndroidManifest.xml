@@ -60,6 +60,10 @@
         <activity
             android:name=".ui.billitemselect.BillItemSelectActivity"
             android:label="添加账单项目" />
+        <activity
+            android:name=".ui.resources.ResourceListActivity"
+            android:label="文件列表" />
+        <activity android:name=".ui.bills.BillsListActivity" />
     </application>
 
 </manifest>

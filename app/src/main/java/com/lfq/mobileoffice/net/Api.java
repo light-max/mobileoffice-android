@@ -10,13 +10,16 @@ import com.lfq.mobileoffice.data.request.ReimbursementPostData;
 import com.lfq.mobileoffice.data.result.AFLType;
 import com.lfq.mobileoffice.data.result.Employee;
 import com.lfq.mobileoffice.data.result.Equipment;
+import com.lfq.mobileoffice.data.result.LeavePager;
 import com.lfq.mobileoffice.data.result.Notice;
 import com.lfq.mobileoffice.data.result.NoticePager;
 import com.lfq.mobileoffice.data.result.Pager;
+import com.lfq.mobileoffice.data.result.ReimbursementPager;
 import com.lfq.mobileoffice.data.result.Resource;
 import com.lfq.mobileoffice.data.result.Room;
 import com.lfq.mobileoffice.data.result.RoomApplyPager;
 import com.lfq.mobileoffice.data.result.RoomPager;
+import com.lfq.mobileoffice.data.result.TravelPager;
 
 import java.io.File;
 import java.util.List;
@@ -25,6 +28,17 @@ import java.util.List;
  * 网络请求接口工具类
  */
 public class Api {
+
+    /**
+     * 把url地址加上端口
+     *
+     * @param path
+     * @return
+     */
+    public static String url(String path) {
+        return new File(Net.baseUrl, path).getPath();
+    }
+
     /**
      * 登陆请求
      *
@@ -273,5 +287,86 @@ public class Api {
                 .handler(new Handler())
                 .url("/reimbursement/application/post")
                 .json(data);
+    }
+
+    /**
+     * 分页查询“我的”请假申请记录
+     *
+     * @param pager 当前分页数据
+     */
+    public static Net.Builder leavePage(@Nullable Pager pager) {
+        Net.Builder builder = Net.builder().method(Net.GET)
+                .typeOf(LeavePager.class)
+                .handler(new Handler())
+                .url("/leave/application/list/{currentPage}");
+        if (pager != null) {
+            builder.path("currentPage", pager.getCurrentPage() + 1);
+        }
+        return builder;
+    }
+
+    /**
+     * 查询所有“我的”待批准请假申请记录
+     */
+    public static Net.Builder leavePending() {
+        return Net.builder().method(Net.GET)
+                .typeOf(LeavePager.class)
+                .handler(new Handler())
+                .url("/leave/application/list")
+                .param("status", 1);
+    }
+
+    /**
+     * 分页查询“我的”出差申请记录
+     *
+     * @param pager 当前分页数据
+     */
+    public static Net.Builder travelPage(@Nullable Pager pager) {
+        Net.Builder builder = Net.builder().method(Net.GET)
+                .typeOf(TravelPager.class)
+                .handler(new Handler())
+                .url("/travel/application/list/{currentPage}");
+        if (pager != null) {
+            builder.path("currentPage", pager.getCurrentPage() + 1);
+        }
+        return builder;
+    }
+
+    /**
+     * 查询所有“我的”待批准出差申请记录
+     */
+    public static Net.Builder travelPending() {
+        return Net.builder().method(Net.GET)
+                .typeOf(TravelPager.class)
+                .handler(new Handler())
+                .url("/travel/application/list/")
+                .param("status", 1);
+    }
+
+    /**
+     * 分页查询“我的”报销申请
+     *
+     * @param pager 当前分页状态
+     */
+    public static Net.Builder reimbursementPage(@Nullable Pager pager) {
+        Net.Builder builder = Net.builder().method(Net.GET)
+                .typeOf(ReimbursementPager.class)
+                .handler(new Handler())
+                .url("/reimbursement/application/list/{currentPage}");
+        if (pager != null) {
+            builder.path("currentPage", pager.getCurrentPage() + 1);
+        }
+        return builder;
+    }
+
+    /**
+     * 查询所有“我的”待批准报销申请记录
+     */
+    public static Net.Builder reimbursementPending() {
+        return Net.builder().method(Net.GET)
+                .typeOf(ReimbursementPager.class)
+                .handler(new Handler())
+                .url("/reimbursement/application/list")
+                .param("status", 1);
     }
 }

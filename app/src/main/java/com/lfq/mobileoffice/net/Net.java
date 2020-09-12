@@ -27,8 +27,8 @@ import okhttp3.RequestBody;
  * 网络请求工具类
  */
 public class Net {
-    private static Net net = new Net();
-    private OkHttpClient client;
+    public static Net net = new Net();
+    public OkHttpClient client;
     /**
      * mediaType的map对象, key:文件后缀名, value:MediaType字符串
      * 需要初始化

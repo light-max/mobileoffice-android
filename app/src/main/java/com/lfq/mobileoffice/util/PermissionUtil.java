@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat;
  */
 public class PermissionUtil {
 
-    public static final int RESULT_OK = 0x1;
+    public static final int CODE_EXTERNAL = 0x1;
 
     /**
      * 申请文件读写权限
@@ -23,7 +23,7 @@ public class PermissionUtil {
             ActivityCompat.requestPermissions(activity, new String[]{
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.READ_EXTERNAL_STORAGE,
-                    }, RESULT_OK
+                    }, CODE_EXTERNAL
             );
             return false;
         }
