@@ -1,8 +1,6 @@
 package com.lfq.mobileoffice.ui.room;
 
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,6 +17,7 @@ import com.lfq.mobileoffice.data.result.RoomApplyPager;
 import com.lfq.mobileoffice.logger.LoggerName;
 import com.lfq.mobileoffice.net.Api;
 import com.lfq.mobileoffice.net.Net;
+import com.lfq.mobileoffice.util.DateTimeSelectedEditText;
 import com.lfq.mobileoffice.util.Utils;
 
 import java.util.Calendar;
@@ -28,23 +27,34 @@ import java.util.Calendar;
 @BaseDetailsActivity.ViewResource(R.layout.activity_room_apply)
 public class RoomApplyActivity extends BaseDetailsActivity<Room> {
 
-    private EditText startDate;
-    private EditText startTime;
-    private EditText endDate;
-    private EditText endTime;
+    private DateTimeSelectedEditText start;
+    private DateTimeSelectedEditText end;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startDate = get(R.id.start_date);
-        startTime = get(R.id.start_time);
-        endDate = get(R.id.end_date);
-        endTime = get(R.id.end_time);
 
-        click(startDate, v -> selectDate((EditText) v));
-        click(startTime, v -> selectTime((EditText) v));
-        click(endDate, v -> selectDate((EditText) v));
-        click(endTime, v -> selectTime((EditText) v));
+        start = get(R.id.start);
+        end = get(R.id.end);
+        // 为了显示显示时长设置的监听器
+        @SuppressLint("DefaultLocale")
+        DateTimeSelectedEditText.OnChangeListener changeListener = millis -> {
+            try {
+                long start = this.start.getMillisecond();
+                long end = this.end.getMillisecond();
+                long minute = (end - start) / 1000 / 60;
+                if (minute >= 60) {
+                    text(R.id.duration, String.format("%d小时%d分钟", minute / 60, minute % 60));
+                } else {
+                    text(R.id.duration, minute + "分钟");
+                }
+            } catch (NullPointerException ignored) {
+                text(R.id.duration, "");
+            }
+        };
+        start.setOnChangeListener(changeListener);
+        end.setOnChangeListener(changeListener);
+
         click(R.id.post, v -> post());
 
         RoomApplyListAdapter adapter = new RoomApplyListAdapter(this);
@@ -85,38 +95,12 @@ public class RoomApplyActivity extends BaseDetailsActivity<Room> {
     }
 
     /**
-     * 给日期编辑框设置点击事件，并且把{@link DatePicker}组件绑定到日期编辑框的tag中
-     */
-    @SuppressLint("DefaultLocale")
-    private void selectDate(EditText text) {
-        DatePickerDialog dialog = new DatePickerDialog(this);
-        dialog.setOnDateSetListener((view, year, month, dayOfMonth) -> {
-            text.setText(String.format("%d/%d/%d", year, month + 1, dayOfMonth));
-            text.setTag(view);
-            setDuration();
-        });
-        dialog.show();
-    }
-
-    /**
-     * 给事件编辑框设置点击事件，并且把{@link TimePicker}组件绑定到事件编辑框的tag中
-     */
-    @SuppressLint("DefaultLocale")
-    private void selectTime(EditText text) {
-        new TimePickerDialog(this, (view, hourOfDay, minute) -> {
-            text.setText(String.format("%d:%d", hourOfDay, minute));
-            text.setTag(view);
-            setDuration();
-        }, 0, 0, true).show();
-    }
-
-    /**
      * 提交会议室使用申请
      */
     private void post() {
         try {
-            long start = getTimeInMillis(startDate, startTime);
-            long end = getTimeInMillis(endDate, endTime);
+            long start = this.start.getMillisecond();
+            long end = this.end.getMillisecond();
             String des = Utils.string(get(R.id.des));
             Api.postRoomApply(getTargetId(), start, end, des).success(o -> {
                 get(R.id.post).setEnabled(false);
@@ -149,24 +133,5 @@ public class RoomApplyActivity extends BaseDetailsActivity<Room> {
         int minute = 60 * 1000;
         // 最小单位只取分钟，秒和毫秒都舍弃
         return calendar.getTimeInMillis() / minute * minute;
-    }
-
-    /**
-     * 显示时长
-     */
-    @SuppressLint("DefaultLocale")
-    private void setDuration() {
-        try {
-            long start = getTimeInMillis(startDate, startTime);
-            long end = getTimeInMillis(endDate, endTime);
-            long minute = (end - start) / 1000 / 60;
-            if (minute >= 60) {
-                text(R.id.duration, String.format("%d小时%d分钟", minute / 60, minute % 60));
-            } else {
-                text(R.id.duration, minute + "分钟");
-            }
-        } catch (NullPointerException ignored) {
-            text(R.id.duration, "");
-        }
     }
 }
