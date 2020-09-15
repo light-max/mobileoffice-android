@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * 常用工具类
@@ -22,6 +23,8 @@ public class Utils {
 
     @SuppressLint("SimpleDateFormat")
     public static String dateFormat(String format, long time) {
-        return new SimpleDateFormat(format).format(new Date(time));
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+        return dateFormat.format(new Date(time));
     }
 }

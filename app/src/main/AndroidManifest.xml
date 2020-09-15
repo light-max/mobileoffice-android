@@ -42,12 +42,7 @@
             android:label="会议室预约" />
         <activity
             android:name=".ui.leave.AskForLeaveActivity"
-            android:label="请假">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
-        </activity>
+            android:label="请假" />
         <activity
             android:name=".ui.fileselect.FileSelectActivity"
             android:label="文件选择" />

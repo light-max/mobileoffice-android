@@ -14,13 +14,16 @@ import com.lfq.mobileoffice.data.result.Notice;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * 公告列表适配器
  */
 class NoticeAdapter extends SimpleRecyclerAdapter<Notice, NoticeAdapter.ViewHolder> {
     @SuppressLint("SimpleDateFormat")
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/M/d HH:mm");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/M/d HH:mm") {{
+        setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+    }};
 
     public NoticeAdapter(Base base) {
         super(base);

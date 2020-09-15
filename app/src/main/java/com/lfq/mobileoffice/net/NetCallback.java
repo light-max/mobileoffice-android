@@ -110,6 +110,7 @@ class NetCallback implements Callback {
      * @param message 提示消息
      */
     private void onFailure(String message) {
+        logger.error(message);
         if (uiHandler != null && showToast) {
             uiHandler.post(() -> {
                 Toast.makeText(App.getContext(), message, Toast.LENGTH_SHORT).show();

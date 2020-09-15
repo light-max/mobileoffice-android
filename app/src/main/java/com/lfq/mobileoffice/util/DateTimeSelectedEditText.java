@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import com.lfq.mobileoffice.R;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  * 时间日期选择器编辑框
@@ -82,7 +83,7 @@ public class DateTimeSelectedEditText extends LinearLayout {
     public long getMillisecond() {
         DatePicker datePicker = datePickerDialog.getDatePicker();
         TimePicker timePicker = (TimePicker) time.getTag();
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+8:00"));
         calendar.set(datePicker.getYear(),
                 datePicker.getMonth(),
                 datePicker.getDayOfMonth(),
