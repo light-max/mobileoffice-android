@@ -13,7 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.BaseActivity;
 import com.lfq.mobileoffice.data.result.Resource;
-import com.lfq.mobileoffice.net.Api;
+import com.lfq.mobileoffice.Api;
 import com.lfq.mobileoffice.net.Net;
 import com.lfq.mobileoffice.util.PermissionUtil;
 

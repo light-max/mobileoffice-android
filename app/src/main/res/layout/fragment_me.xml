@@ -22,99 +22,54 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
-            <LinearLayout
+            <com.lfq.mobileoffice.ui.home.me.IconButton
+                android:id="@+id/me_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:bt_icon="@drawable/ic_baseline_info_24"
+                app:bt_text="我的信息" />
+
+            <com.lfq.mobileoffice.ui.home.me.IconButton
                 android:id="@+id/ask_for_leave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="16dp">
+                app:bt_icon="@drawable/ic_baseline_rowing_24"
+                app:bt_text="请假" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_rowing_24" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingStart="24dp"
-                    android:text="请假" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_chevron_right_black_24dp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd" />
-
-            <LinearLayout
+            <com.lfq.mobileoffice.ui.home.me.IconButton
                 android:id="@+id/business_trip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="16dp">
+                app:bt_icon="@drawable/ic_baseline_rowing_24"
+                app:bt_text="出差" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_rowing_24" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingStart="24dp"
-                    android:text="出差" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_chevron_right_black_24dp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd" />
-
-            <LinearLayout
+            <com.lfq.mobileoffice.ui.home.me.IconButton
                 android:id="@+id/reimbursement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="16dp">
+                app:bt_icon="@drawable/ic_baseline_rowing_24"
+                app:bt_text="报销" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_rowing_24" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingStart="24dp"
-                    android:text="报销" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_chevron_right_black_24dp" />
-
-            </LinearLayout>
-
-            <!--            end-->
-            <View
+            <com.lfq.mobileoffice.ui.home.me.IconButton
+                android:id="@+id/go_to_work"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dddddd" />
+                android:layout_height="wrap_content"
+                app:bt_icon="@drawable/ic_baseline_rowing_24"
+                app:bt_text="上班签到" />
+
+            <com.lfq.mobileoffice.ui.home.me.IconButton
+                android:id="@+id/off_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:bt_icon="@drawable/ic_baseline_rowing_24"
+                app:bt_text="下班签到" />
+
+            <com.lfq.mobileoffice.ui.home.me.IconButton
+                android:id="@+id/attendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:bt_icon="@drawable/ic_baseline_rowing_24"
+                app:bt_text="我的考勤" />
 
             <View
                 android:layout_width="0dp"
@@ -127,32 +82,12 @@
                 android:layout_height="1dp"
                 android:background="#dddddd" />
 
-            <LinearLayout
+            <com.lfq.mobileoffice.ui.home.me.IconButton
                 android:id="@+id/setting"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_rowing_24" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingStart="24dp"
-                    android:text="设置" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_chevron_right_black_24dp" />
-
-            </LinearLayout>
-
+                app:bt_icon="@drawable/ic_baseline_settings_24"
+                app:bt_text="设置" />
 
         </LinearLayout>
 

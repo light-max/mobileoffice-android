@@ -1,5 +1,6 @@
 package com.lfq.mobileoffice.data.result;
 
+
 import org.jetbrains.annotations.NotNull;
 
 /**

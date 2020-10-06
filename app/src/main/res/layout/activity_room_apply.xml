@@ -17,7 +17,7 @@
             android:gravity="end"
             android:text="开始时间：" />
 
-        <com.lfq.mobileoffice.util.DateTimeSelectedEditText
+        <com.lfq.mobileoffice.widget.DateTimeSelectedEditText
             android:id="@+id/start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -35,7 +35,7 @@
             android:gravity="end"
             android:text="结束时间：" />
 
-        <com.lfq.mobileoffice.util.DateTimeSelectedEditText
+        <com.lfq.mobileoffice.widget.DateTimeSelectedEditText
             android:id="@+id/end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

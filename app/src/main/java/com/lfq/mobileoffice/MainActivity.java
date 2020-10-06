@@ -8,7 +8,6 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.base.BaseActivity;
-import com.lfq.mobileoffice.net.Api;
 import com.lfq.mobileoffice.ui.home.HomeActivity;
 import com.lfq.mobileoffice.ui.login.LoginActivity;
 
@@ -56,7 +55,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println(requestCode + "," + resultCode);
         // 如果调用登陆activity登陆成功
         if (requestCode == LoginActivity.LOGIN_REQUEST && resultCode == RESULT_OK) {
             // 启动主页activity

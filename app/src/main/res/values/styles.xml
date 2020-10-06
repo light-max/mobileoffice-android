@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="IconButton">
+        <attr name="bt_icon" format="reference"/>
+        <attr name="bt_text" format="string" />
+    </declare-styleable>
+
 </resources>

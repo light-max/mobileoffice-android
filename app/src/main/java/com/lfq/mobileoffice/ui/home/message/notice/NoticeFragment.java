@@ -11,9 +11,9 @@ import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.BaseFragment;
 import com.lfq.mobileoffice.data.result.NoticePager;
 import com.lfq.mobileoffice.logger.LoggerName;
-import com.lfq.mobileoffice.net.Api;
 import com.lfq.mobileoffice.net.Net;
 import com.lfq.mobileoffice.ui.notice.NoticeDetailsActivity;
+import com.lfq.mobileoffice.Api;
 
 /**
  * 公告列表activity

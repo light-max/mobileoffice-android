@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lfq.mobileoffice.R;
-import com.lfq.mobileoffice.adapter.SimpleRecyclerAdapter;
+import com.lfq.mobileoffice.base.adapter.SimpleRecyclerAdapter;
 import com.lfq.mobileoffice.base.Base;
 import com.lfq.mobileoffice.data.result.Room;
 

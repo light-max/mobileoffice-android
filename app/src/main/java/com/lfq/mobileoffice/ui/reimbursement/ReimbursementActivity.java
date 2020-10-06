@@ -6,10 +6,10 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.lfq.mobileoffice.R;
-import com.lfq.mobileoffice.base.fileselectactivity.BaseFileSelectActivity;
+import com.lfq.mobileoffice.ui.fileselectactivity.BaseFileSelectActivity;
 import com.lfq.mobileoffice.data.request.BillItem;
 import com.lfq.mobileoffice.data.request.ReimbursementPostData;
-import com.lfq.mobileoffice.net.Api;
+import com.lfq.mobileoffice.Api;
 import com.lfq.mobileoffice.ui.billitemselect.BillItemSelectActivity;
 import com.lfq.mobileoffice.util.Utils;
 

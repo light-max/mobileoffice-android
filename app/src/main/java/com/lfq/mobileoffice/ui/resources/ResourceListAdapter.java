@@ -8,10 +8,10 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.lfq.mobileoffice.R;
-import com.lfq.mobileoffice.adapter.SimpleRecyclerAdapter;
+import com.lfq.mobileoffice.base.adapter.SimpleRecyclerAdapter;
 import com.lfq.mobileoffice.base.Base;
 import com.lfq.mobileoffice.data.result.Resource;
-import com.lfq.mobileoffice.net.Api;
+import com.lfq.mobileoffice.Api;
 import com.lfq.mobileoffice.ui.home.message.leave.AdapterMeLeave;
 
 /**

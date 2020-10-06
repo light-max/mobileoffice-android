@@ -1,2 +1,6 @@
+include ':base'
+include ':logger'
+include ':net'
+include ':scan'
 include ':app'
 rootProject.name = "移动办公"

@@ -11,7 +11,7 @@ import com.lfq.mobileoffice.base.BaseDetailsActivity;
 import com.lfq.mobileoffice.data.result.Equipment;
 import com.lfq.mobileoffice.data.result.Room;
 import com.lfq.mobileoffice.logger.LoggerName;
-import com.lfq.mobileoffice.net.Api;
+import com.lfq.mobileoffice.Api;
 import com.lfq.mobileoffice.net.Net;
 
 import java.util.List;

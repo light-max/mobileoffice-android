@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.lfq.mobileoffice.R;
-import com.lfq.mobileoffice.adapter.SimpleRecyclerAdapter;
+import com.lfq.mobileoffice.base.adapter.SimpleRecyclerAdapter;
 import com.lfq.mobileoffice.base.Base;
 
 import java.io.File;
