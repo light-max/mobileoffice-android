@@ -13,6 +13,8 @@ import com.lfq.mobileoffice.data.result.Equipment;
 
 /**
  * 会议室列表适配器
+ *
+ * @author 李凤强
  */
 class EquipmentAdapter extends SimpleRecyclerAdapter<Equipment, EquipmentAdapter.ViewHolder> {
 

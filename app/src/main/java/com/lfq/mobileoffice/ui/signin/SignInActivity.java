@@ -15,6 +15,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 扫描签到activity
+ *
+ * @author 李凤强
  */
 public class SignInActivity extends BaseActivity {
     @Override

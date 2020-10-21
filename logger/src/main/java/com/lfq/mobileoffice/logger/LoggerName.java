@@ -7,6 +7,8 @@ import java.lang.annotation.Target;
 
 /**
  * 日志tag注解
+ *
+ * @author 李凤强
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

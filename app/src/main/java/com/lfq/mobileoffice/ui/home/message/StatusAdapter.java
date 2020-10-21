@@ -15,6 +15,7 @@ import java.util.Map;
  * {@link SimpleRecyclerAdapter}封装，主要功能是为了统一处理
  * <b>{@link #dateFormat},{@link #status},{@link #base}</b>
  *
+ * @author 李凤强
  * @see SimpleRecyclerAdapter
  */
 public abstract class StatusAdapter<T, VH extends RecyclerView.ViewHolder>

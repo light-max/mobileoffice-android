@@ -18,6 +18,8 @@ import java.util.List;
 
 /**
  * 会议室详情
+ *
+ * @author 李凤强
  */
 @LoggerName("会议室详情")
 @BaseDetailsActivity.ViewResource(R.layout.activity_room_details)

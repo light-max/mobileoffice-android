@@ -16,6 +16,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 请假申请记录适配器
+ *
+ * @author 李凤强
  */
 public class AdapterMeLeave extends StatusAdapter<Leave, AdapterMeLeave.ViewHolder> {
 

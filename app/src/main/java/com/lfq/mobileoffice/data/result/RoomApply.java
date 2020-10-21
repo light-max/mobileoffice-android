@@ -2,6 +2,8 @@ package com.lfq.mobileoffice.data.result;
 
 /**
  * 会议室预约申请
+ *
+ * @author 李凤强
  */
 public class RoomApply {
 

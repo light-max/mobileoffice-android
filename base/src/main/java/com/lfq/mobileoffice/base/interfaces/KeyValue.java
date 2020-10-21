@@ -5,6 +5,7 @@ import java.util.Map;
 /**
  * 键值对操作接口
  *
+ * @author 李凤强
  * @see #map()
  */
 public interface KeyValue {

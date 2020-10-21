@@ -25,6 +25,11 @@ import com.lfq.mobileoffice.Api;
 import com.lfq.mobileoffice.util.Utils;
 import com.lfq.mobileoffice.widget.DateTimeSelectedEditText;
 
+/**
+ * 会议室列表fragment
+ *
+ * @author 李凤强
+ */
 @LoggerName("会议室")
 public class RoomFragment extends BaseFragment {
 

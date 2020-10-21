@@ -17,6 +17,8 @@ import com.lfq.mobileoffice.Api;
 
 /**
  * 公告列表activity
+ *
+ * @author 李凤强
  */
 @LoggerName("公告")
 public class NoticeFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {

@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * 公告分页
+ *
+ * @author 李凤强
  */
 public class NoticePager {
 

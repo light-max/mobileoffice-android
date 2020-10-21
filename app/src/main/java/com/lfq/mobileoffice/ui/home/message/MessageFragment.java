@@ -21,6 +21,8 @@ import com.lfq.mobileoffice.ui.home.message.travel.MeTravel;
 
 /**
  * 消息fragment
+ *
+ * @author 李凤强
  */
 public class MessageFragment extends BaseFragment {
     @Override

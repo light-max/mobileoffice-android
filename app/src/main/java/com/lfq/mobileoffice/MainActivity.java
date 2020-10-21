@@ -15,6 +15,8 @@ import java.util.Objects;
 
 /**
  * 主活动
+ *
+ * @author 李凤强
  */
 public class MainActivity extends BaseActivity {
 

@@ -21,6 +21,8 @@ import java.util.Map;
 
 /**
  * 定制的fragment
+ *
+ * @author 李凤强
  */
 public class BaseFragment extends Fragment implements Base {
 

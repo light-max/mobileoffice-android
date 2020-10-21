@@ -19,6 +19,8 @@ import java.util.Objects;
 
 /**
  * 主页activity
+ *
+ * @author 李凤强
  */
 public class HomeActivity extends BaseActivity {
 

@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
 /**
  * 上拉加载更多监听<br>
  * 仅用于{@link RecyclerView#addOnScrollListener(RecyclerView.OnScrollListener)}
+ *
+ * @author 李凤强
  */
 public class OnLoadMoreListener extends RecyclerView.OnScrollListener {
     // 用来标记是否正在向上滑动

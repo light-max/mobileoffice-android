@@ -27,6 +27,8 @@ import java.util.Objects;
  * 子类需要拥有{@link androidx.recyclerview.widget.RecyclerView}控件来显示已选择的文件,<br>
  * 并且把{@link androidx.recyclerview.widget.RecyclerView}控件的id设置为{@link com.lfq.mobileoffice.R.id#recycler}.<br>
  * <b>必须重写{@link #getResources()}方法获取视图资源文件的id,否则文件列表适配器初始化时会抛出异常</b>
+ *
+ * @author 李凤强
  */
 public abstract class BaseFileSelectActivity extends BaseActivity {
 

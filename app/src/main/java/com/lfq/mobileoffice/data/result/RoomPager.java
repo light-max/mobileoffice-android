@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * 会议室分页数据
+ *
+ * @author 李凤强
  */
 public class RoomPager {
 

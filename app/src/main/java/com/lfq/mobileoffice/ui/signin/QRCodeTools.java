@@ -12,6 +12,11 @@ import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.util.Hashtable;
 
+/**
+ * 二维码工具类
+ *
+ * @author 李凤强
+ */
 class QRCodeTools {
     /**
      * 生成简单二维码

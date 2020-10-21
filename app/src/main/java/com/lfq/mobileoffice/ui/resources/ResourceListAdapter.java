@@ -16,6 +16,8 @@ import com.lfq.mobileoffice.ui.home.message.leave.AdapterMeLeave;
 
 /**
  * 资源文件列表适配器
+ *
+ * @author 李凤强
  */
 class ResourceListAdapter extends SimpleRecyclerAdapter<Resource, ResourceListAdapter.ViewHolder> {
 

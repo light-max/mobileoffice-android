@@ -7,6 +7,8 @@ import java.lang.annotation.Target;
 
 /**
  * 日志级别注解，加上这个注解代表要打印{@link Logger#info}级别的注解
+ *
+ * @author 李凤强
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

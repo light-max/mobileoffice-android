@@ -7,6 +7,8 @@ import com.lfq.mobileoffice.Api;
 
 /**
  * 消息中: 所有预约申请
+ *
+ * @author 李凤强
  */
 public class MeRoomApplyAll extends MessageRecyclerFragment<AdapterMeRoomApply> {
 

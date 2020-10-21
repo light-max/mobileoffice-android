@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 
 /**
  * 账单项目
+ *
+ * @author 李凤强
  */
 public class BillItem {
     /**

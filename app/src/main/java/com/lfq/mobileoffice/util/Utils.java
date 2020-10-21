@@ -9,6 +9,8 @@ import java.util.TimeZone;
 
 /**
  * 常用工具类
+ *
+ * @author 李凤强
  */
 public class Utils {
     /**

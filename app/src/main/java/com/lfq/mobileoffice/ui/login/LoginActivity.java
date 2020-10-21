@@ -16,6 +16,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 登陆界面activity
+ *
+ * @author 李凤强
  */
 @LoggerName("登陆")
 public class LoginActivity extends BaseActivity {

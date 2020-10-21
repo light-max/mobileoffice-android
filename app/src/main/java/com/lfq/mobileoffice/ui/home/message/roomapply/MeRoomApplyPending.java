@@ -7,6 +7,8 @@ import com.lfq.mobileoffice.Api;
 
 /**
  * 消息中: 待审核的预约申请
+ *
+ * @author 李凤强
  */
 public class MeRoomApplyPending extends MessageRecyclerFragment<AdapterMeRoomApply> {
     @Override

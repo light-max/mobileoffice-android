@@ -9,6 +9,9 @@ import android.widget.Toast;
 import com.lfq.mobileoffice.net.MediaTypeUtil;
 import com.lfq.mobileoffice.net.ResponseSetting;
 
+/**
+ * @author 李凤强
+ */
 public class App extends Application {
 
     @SuppressLint("StaticFieldLeak")

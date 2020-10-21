@@ -7,6 +7,8 @@ import com.lfq.mobileoffice.Api;
 
 /**
  * 消息中待审核的请假申请
+ *
+ * @author 李凤强
  */
 public class MeLeavePending extends MessageRecyclerFragment<AdapterMeLeave> {
     @Override

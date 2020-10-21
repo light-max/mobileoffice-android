@@ -10,6 +10,11 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
+/**
+ * 文件操作工具类
+ *
+ * @author 李凤强
+ */
 public class FileUtil {
     /**
      * 根据URI获取文件真实路径（兼容多张机型）

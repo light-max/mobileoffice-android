@@ -18,6 +18,8 @@ import java.util.Objects;
 
 /**
  * 文件选择activity
+ *
+ * @author 李凤强
  */
 public class FileSelectActivity extends BaseActivity {
 

@@ -15,6 +15,8 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * 主页会议室列表适配器
+ *
+ * @author 李凤强
  */
 class RoomAdapter extends SimpleRecyclerAdapter<Room, RoomAdapter.ViewHolder> {
     private final int danger;

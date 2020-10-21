@@ -23,6 +23,7 @@ import java.util.Objects;
  * 子类必须添加注解：{@link ViewResource},{@link RelativePath}
  *
  * @param <T> 注解实体类
+ * @author 李凤强
  */
 public abstract class BaseDetailsActivity<T> extends BaseActivity {
 

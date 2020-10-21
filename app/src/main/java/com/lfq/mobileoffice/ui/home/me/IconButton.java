@@ -16,6 +16,8 @@ import com.lfq.mobileoffice.base.interfaces.ViewGet;
 
 /**
  * 有图标的按钮
+ *
+ * @author 李凤强
  */
 public class IconButton extends LinearLayout implements ViewGet {
     public IconButton(Context context) {

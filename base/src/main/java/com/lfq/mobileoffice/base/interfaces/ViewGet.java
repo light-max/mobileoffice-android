@@ -13,6 +13,8 @@ import java.util.Objects;
 
 /**
  * 简化{@link View#findViewById}的操作
+ *
+ * @author 李凤强
  */
 public interface ViewGet {
     /**

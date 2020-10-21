@@ -14,6 +14,8 @@ import java.util.List;
 
 /**
  * 出差申请activity
+ *
+ * @author 李凤强
  */
 public class BusinessTripActivity extends BaseFileSelectActivity {
 

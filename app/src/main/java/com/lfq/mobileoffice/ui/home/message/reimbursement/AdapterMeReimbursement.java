@@ -16,6 +16,8 @@ import com.lfq.mobileoffice.ui.home.message.StatusAdapter;
 
 /**
  * 报销记录适配器
+ *
+ * @author 李凤强
  */
 public class AdapterMeReimbursement extends StatusAdapter<Reimbursement, AdapterMeReimbursement.ViewHolder> {
 

@@ -10,6 +10,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 公告详情activity
+ *
+ * @author 李凤强
  */
 @LoggerName("公告详情")
 @BaseDetailsActivity.ViewResource(R.layout.activity_notice_details)

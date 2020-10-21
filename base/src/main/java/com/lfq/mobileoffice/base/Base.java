@@ -10,6 +10,8 @@ import com.lfq.mobileoffice.base.interfaces.ViewGet;
 
 /**
  * Base接口
+ *
+ * @author 李凤强
  */
 public interface Base extends KeyValue, ViewGet {
     /**

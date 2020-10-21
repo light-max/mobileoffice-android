@@ -22,6 +22,11 @@ import com.lfq.mobileoffice.widget.DateTimeSelectedEditText;
 
 import java.util.Calendar;
 
+/**
+ * 会议室申请activity
+ *
+ * @author 李凤强
+ */
 @LoggerName("会议室申请")
 @BaseDetailsActivity.RelativePath("room")
 @BaseDetailsActivity.ViewResource(R.layout.activity_room_apply)

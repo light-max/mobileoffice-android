@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * 出差分页对象
+ *
+ * @author 李凤强
  */
 public class TravelPager {
 

@@ -21,6 +21,8 @@ import java.util.Objects;
 
 /**
  * 定制的activity
+ *
+ * @author 李凤强
  */
 public class BaseActivity extends AppCompatActivity implements Base {
 

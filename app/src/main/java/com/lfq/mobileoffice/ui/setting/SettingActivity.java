@@ -9,6 +9,11 @@ import com.lfq.mobileoffice.R;
 import com.lfq.mobileoffice.base.BaseActivity;
 import com.lfq.mobileoffice.net.Net;
 
+/**
+ * 设置activity
+ *
+ * @author 李凤强
+ */
 public class SettingActivity extends BaseActivity {
 
     public static final int REQUEST_CODE = 0x33;

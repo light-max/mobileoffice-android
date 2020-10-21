@@ -2,6 +2,8 @@ package com.lfq.mobileoffice.data.request;
 
 /**
  * 账单项目类，发送网络请求用
+ *
+ * @author 李凤强
  */
 public class BillItem {
     private String name;

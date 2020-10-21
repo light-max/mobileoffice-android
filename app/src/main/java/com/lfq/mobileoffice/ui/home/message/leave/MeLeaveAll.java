@@ -7,6 +7,8 @@ import com.lfq.mobileoffice.ui.home.message.MessageRecyclerFragment;
 
 /**
  * 消息中所有请假申请
+ *
+ * @author 李凤强
  */
 public class MeLeaveAll extends MessageRecyclerFragment<AdapterMeLeave> {
     @Override

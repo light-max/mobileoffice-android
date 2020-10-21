@@ -12,6 +12,8 @@ import java.util.HashMap;
 
 /**
  * mediaType工具
+ *
+ * @author 李凤强
  */
 public class MediaTypeUtil {
     private static final Logger logger = Logger.getLogger("MediaType初始化工具");

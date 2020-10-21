@@ -1,5 +1,10 @@
 package com.lfq.mobileoffice.scan.data.result;
 
+/**
+ * 签到成功的返回结果
+ *
+ * @author 李凤强
+ */
 public class SignInSuccess {
 
     /**

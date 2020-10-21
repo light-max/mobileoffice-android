@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * 报销表
+ *
+ * @author 李凤强
  */
 public class Reimbursement {
 

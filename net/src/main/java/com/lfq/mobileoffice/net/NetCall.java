@@ -1,5 +1,11 @@
 package com.lfq.mobileoffice.net;
 
+/**
+ * 请求回调接口
+ *
+ * @param <T> 数据类型
+ * @author 李凤强
+ */
 public interface NetCall<T> {
     /**
      * 请求成功的回调

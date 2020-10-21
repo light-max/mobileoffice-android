@@ -4,6 +4,8 @@ import android.util.Log;
 
 /**
  * 日志工具
+ *
+ * @author 李凤强
  */
 @LoggerInfo
 @LoggerError

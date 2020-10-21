@@ -18,6 +18,8 @@ import java.util.List;
 /**
  * 报销账单列表activity<br>
  * <b>使用{@link #start(Context, long)}方法来启动此activity</b>
+ *
+ * @author 李凤强
  */
 public class BillsListActivity extends BaseActivity {
 

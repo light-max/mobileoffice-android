@@ -14,6 +14,11 @@ import com.lfq.mobileoffice.data.result.Employee;
 import com.lfq.mobileoffice.data.result.RoomApply;
 import com.lfq.mobileoffice.util.Utils;
 
+/**
+ * 会议室申请中的申请记录列表适配器
+ *
+ * @author 李凤强
+ */
 class RoomApplyListAdapter extends SimpleRecyclerAdapter<RoomApply, RoomApplyListAdapter.ViewHolder> {
     private final int[] colors;
     private final Employee me;

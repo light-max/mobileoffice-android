@@ -6,6 +6,8 @@ import com.lfq.mobileoffice.data.result.Employee;
 
 /**
  * 用户登陆数据
+ *
+ * @author 李凤强
  */
 public class LoginEmployeeData extends MutableLiveData<Employee> {
     private static LoginEmployeeData instance;

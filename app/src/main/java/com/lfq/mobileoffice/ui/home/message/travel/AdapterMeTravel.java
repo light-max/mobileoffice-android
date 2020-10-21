@@ -17,6 +17,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 出差申请记录适配器
+ *
+ * @author 李凤强
  */
 public class AdapterMeTravel extends StatusAdapter<Travel, AdapterMeTravel.ViewHolder> {
 

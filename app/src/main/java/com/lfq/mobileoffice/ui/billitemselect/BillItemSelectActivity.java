@@ -15,6 +15,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 账单项目选择activity
+ *
+ * @author 李凤强
  */
 public class BillItemSelectActivity extends BaseActivity {
 

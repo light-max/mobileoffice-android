@@ -7,6 +7,8 @@ import com.lfq.mobileoffice.Api;
 
 /**
  * 待审核的出差申请
+ *
+ * @author 李凤强
  */
 public class MeTravelPending extends MessageRecyclerFragment<AdapterMeTravel> {
     @Override

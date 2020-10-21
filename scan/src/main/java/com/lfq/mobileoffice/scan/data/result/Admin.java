@@ -1,5 +1,10 @@
 package com.lfq.mobileoffice.scan.data.result;
 
+/**
+ * 管理员实体类
+ *
+ * @author 李凤强
+ */
 public class Admin {
     /**
      * id : 17

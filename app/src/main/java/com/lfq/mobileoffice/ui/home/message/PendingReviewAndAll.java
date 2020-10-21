@@ -21,6 +21,8 @@ import java.lang.annotation.Target;
  * 审核与未审核视图容器，该容器容纳两个fragment，
  * 一个是待审核界面，一个是所有记录界面.<br>
  * 需要添加注解：{@link Pending}与{@link All}
+ *
+ * @author 李凤强
  */
 public abstract class PendingReviewAndAll extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 

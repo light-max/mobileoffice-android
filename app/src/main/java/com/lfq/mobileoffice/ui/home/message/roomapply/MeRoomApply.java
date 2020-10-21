@@ -5,6 +5,8 @@ import com.lfq.mobileoffice.ui.home.message.PendingReviewAndAll;
 
 /**
  * "我的"会议室预约记录
+ *
+ * @author 李凤强
  */
 @LoggerName("会议室预约记录")
 @PendingReviewAndAll.Pending(MeRoomApplyPending.class)

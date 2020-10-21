@@ -14,6 +14,8 @@ import java.io.File;
 
 /**
  * {@link ResourceListActivity}的工具类
+ *
+ * @author 李凤强
  */
 class Util {
     private static File directory;

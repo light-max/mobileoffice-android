@@ -23,6 +23,8 @@ import java.util.Map;
 
 /**
  * 会议室预约申请记录适配器
+ *
+ * @author 李凤强
  */
 public class AdapterMeRoomApply extends SimpleRecyclerAdapter<RoomApply, AdapterMeRoomApply.ViewHolder>
         implements SimpleRecyclerAdapter.OnItemClickListener<RoomApply> {

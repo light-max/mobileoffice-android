@@ -21,6 +21,11 @@ import com.lfq.mobileoffice.ui.trip.BusinessTripActivity;
 
 import java.util.Objects;
 
+/**
+ * “我的”fragment
+ *
+ * @author 李凤强
+ */
 public class MeFragment extends BaseFragment {
     @Override
     public int getViewResource() {

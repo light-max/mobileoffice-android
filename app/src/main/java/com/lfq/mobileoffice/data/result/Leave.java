@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * 请假记录
+ *
+ * @author 李凤强
  */
 public class Leave {
     /**

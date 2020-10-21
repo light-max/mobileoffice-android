@@ -14,6 +14,8 @@ import com.lfq.mobileoffice.scan.data.result.Admin;
 
 /**
  * 入口，登陆activity
+ *
+ * @author 李凤强
  */
 public class MainActivity extends BaseActivity {
 

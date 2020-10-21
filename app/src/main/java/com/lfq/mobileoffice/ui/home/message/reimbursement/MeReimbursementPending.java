@@ -7,6 +7,8 @@ import com.lfq.mobileoffice.Api;
 
 /**
  * 待审核的报销申请
+ *
+ * @author 李凤强
  */
 public class MeReimbursementPending extends MessageRecyclerFragment<AdapterMeReimbursement> {
     @Override

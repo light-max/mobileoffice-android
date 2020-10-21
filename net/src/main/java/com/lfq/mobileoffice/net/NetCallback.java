@@ -23,6 +23,8 @@ import okhttp3.Response;
 /**
  * 封装okhttp回调请求
  * 只适用于{@link Result}格式的数据
+ *
+ * @author 李凤强
  */
 @LoggerName("Net")
 //abstract

@@ -14,6 +14,8 @@ import com.lfq.mobileoffice.data.request.BillItem;
 
 /**
  * 账单项目列表适配器
+ *
+ * @author 李凤强
  */
 class BillItemListAdapter extends SimpleRecyclerAdapter<BillItem, BillItemListAdapter.ViewHolder> {
 

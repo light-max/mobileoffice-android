@@ -4,6 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * 会议室
+ *
+ * @author 李凤强
  */
 public class Room {
     /**

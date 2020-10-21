@@ -2,6 +2,8 @@ package com.lfq.mobileoffice.data.result;
 
 /**
  * 公告
+ *
+ * @author 李凤强
  */
 public class Notice {
 

@@ -28,6 +28,8 @@ import okhttp3.Response;
 
 /**
  * 资源文件列表activity
+ *
+ * @author 李凤强
  */
 public class ResourceListActivity extends BaseActivity {
 

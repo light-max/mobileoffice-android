@@ -20,6 +20,8 @@ import java.util.Map;
 
 /**
  * 查看消息详情的工具类
+ *
+ * @author 李凤强
  */
 public class MessageDetails {
 

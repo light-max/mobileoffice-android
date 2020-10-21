@@ -2,6 +2,8 @@ package com.lfq.mobileoffice.data.result;
 
 /**
  * 分页
+ *
+ * @author 李凤强
  */
 public class Pager {
     /**

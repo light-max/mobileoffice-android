@@ -24,6 +24,7 @@ import java.util.List;
  *
  * @param <T>  item的数据类型
  * @param <VH> 继承于{@link RecyclerView.ViewHolder}
+ * @author 李凤强
  */
 public abstract class SimpleRecyclerAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 

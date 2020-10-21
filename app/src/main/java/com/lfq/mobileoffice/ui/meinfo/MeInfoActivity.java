@@ -19,6 +19,8 @@ import java.util.Date;
 
 /**
  * “我的”信息activity
+ *
+ * @author 李凤强
  */
 public class MeInfoActivity extends BaseActivity {
     @Override

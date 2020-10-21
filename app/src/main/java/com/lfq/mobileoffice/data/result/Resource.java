@@ -2,6 +2,8 @@ package com.lfq.mobileoffice.data.result;
 
 /**
  * 资源文件
+ *
+ * @author 李凤强
  */
 public class Resource {
 

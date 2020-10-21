@@ -19,6 +19,8 @@ import java.util.Objects;
 /**
  * 消息记录fragment，包含了一个{@link androidx.recyclerview.widget.RecyclerView},
  * 视图与{@link android.widget.TextView}视图
+ *
+ * @author 李凤强
  */
 public abstract class MessageRecyclerFragment<Adapter extends SimpleRecyclerAdapter<?, ?>> extends RefreshFragment {
 

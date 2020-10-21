@@ -10,6 +10,9 @@ import com.lfq.mobileoffice.net.MediaTypeUtil;
 import com.lfq.mobileoffice.net.ResponseSetting;
 import com.lfq.mobileoffice.ui.login.LoginActivity;
 
+/**
+ * @author 李凤强
+ */
 public class App extends Application {
 
     @SuppressLint("StaticFieldLeak")

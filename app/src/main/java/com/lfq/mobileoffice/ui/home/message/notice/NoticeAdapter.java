@@ -18,6 +18,8 @@ import java.util.TimeZone;
 
 /**
  * 公告列表适配器
+ *
+ * @author 李凤强
  */
 class NoticeAdapter extends SimpleRecyclerAdapter<Notice, NoticeAdapter.ViewHolder> {
     @SuppressLint("SimpleDateFormat")

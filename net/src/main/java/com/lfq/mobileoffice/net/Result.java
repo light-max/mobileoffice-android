@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
  * 请求返回结果
  *
  * @param <T>
+ * @author 李凤强
  */
 public class Result<T> {
 

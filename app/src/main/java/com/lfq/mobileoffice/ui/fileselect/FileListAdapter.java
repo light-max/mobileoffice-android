@@ -14,6 +14,11 @@ import com.lfq.mobileoffice.base.Base;
 
 import java.io.File;
 
+/**
+ * 文件列表适配器
+ *
+ * @author 李凤强
+ */
 class FileListAdapter extends SimpleRecyclerAdapter<File, FileListAdapter.ViewHolder> {
 
     public FileListAdapter(Base base) {

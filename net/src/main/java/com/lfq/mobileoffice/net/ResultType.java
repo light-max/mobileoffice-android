@@ -6,6 +6,9 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
+/**
+ * @author 李凤强
+ */
 class ResultType implements ParameterizedType {
     private final Class<?> raw;
     private final Type[] args;

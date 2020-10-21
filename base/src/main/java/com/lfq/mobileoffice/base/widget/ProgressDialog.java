@@ -10,6 +10,8 @@ import com.lfq.mobileoffice.base.R;
 
 /**
  * 进度对话框工具类
+ *
+ * @author 李凤强
  */
 public class ProgressDialog {
     public static AlertDialog create(Context context,String message) {

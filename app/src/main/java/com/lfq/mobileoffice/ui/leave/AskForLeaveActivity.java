@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
 
 /**
  * 请假activity
+ *
+ * @author 李凤强
  */
 public class AskForLeaveActivity extends BaseFileSelectActivity {
 

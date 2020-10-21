@@ -20,6 +20,8 @@ import java.util.TimeZone;
 
 /**
  * 时间日期选择器编辑框
+ *
+ * @author 李凤强
  */
 public class DateTimeSelectedEditText extends LinearLayout {
     private DatePickerDialog datePickerDialog;

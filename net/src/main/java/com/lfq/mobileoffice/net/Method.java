@@ -10,6 +10,8 @@ import java.lang.annotation.Target;
 /**
  * 请求方式注解
  * 在方法的参数中使用
+ *
+ * @author 李凤强
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)

@@ -15,6 +15,8 @@ import com.lfq.mobileoffice.util.Utils;
 
 /**
  * 报销申请activity
+ *
+ * @author 李凤强
  */
 public class ReimbursementActivity extends BaseFileSelectActivity {
 

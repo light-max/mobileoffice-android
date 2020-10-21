@@ -23,6 +23,8 @@ import java.util.TimeZone;
 
 /**
  * 扫描结果activity
+ *
+ * @author 李凤强
  */
 public class ScanningActivity extends BaseActivity {
 

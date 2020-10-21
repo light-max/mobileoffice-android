@@ -9,6 +9,8 @@ import com.lfq.mobileoffice.base.BaseActivity;
 
 /**
  * 考勤activity
+ *
+ * @author 李凤强
  */
 public class AttendanceActivity extends BaseActivity {
     @Override

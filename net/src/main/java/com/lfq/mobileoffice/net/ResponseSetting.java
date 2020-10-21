@@ -4,6 +4,8 @@ import android.os.Handler;
 
 /**
  * 响应设置类
+ *
+ * @author 李凤强
  */
 public class ResponseSetting {
 
