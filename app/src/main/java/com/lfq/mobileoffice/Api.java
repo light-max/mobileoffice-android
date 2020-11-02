@@ -8,6 +8,7 @@ import com.lfq.mobileoffice.data.LoginEmployeeData;
 import com.lfq.mobileoffice.data.request.BillItem;
 import com.lfq.mobileoffice.data.request.ReimbursementPostData;
 import com.lfq.mobileoffice.data.result.AFLType;
+import com.lfq.mobileoffice.data.result.Attendance;
 import com.lfq.mobileoffice.data.result.Department;
 import com.lfq.mobileoffice.data.result.Employee;
 import com.lfq.mobileoffice.data.result.Equipment;
@@ -411,5 +412,20 @@ public class Api {
                 .handler(new Handler())
                 .url("/employee/info/contact")
                 .param("value", value);
+    }
+
+    /**
+     * 根据年月获取自己的考勤
+     * <b>success不在主线程运行</b>
+     *
+     * @param year  年份
+     * @param month 月份
+     */
+    public static Net.Builder attendance(int year, int month) {
+        return Net.builder().method(Net.GET)
+                .typeListOf(Attendance.class)
+                .url("/employee/attendance/month/{year}/{month}")
+                .path("year", year)
+                .path("month", month);
     }
 }

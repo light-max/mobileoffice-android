@@ -7,4 +7,5 @@
 
     <color name="colorDanger">#DC143C</color>
     <color name="colorSafe">#228B22</color>
+    <color name="colorWarning">#ffc107</color>
 </resources>

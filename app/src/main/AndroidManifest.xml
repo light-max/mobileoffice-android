@@ -72,7 +72,13 @@
             android:label="设置" />
         <activity
             android:name=".ui.attendance.AttendanceActivity"
-            android:label="我的考勤" />
+            android:label="我的考勤" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.attendance.AttendanceDetailsActivity" />
     </application>
 
 </manifest>
