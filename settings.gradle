@@ -1,3 +1,4 @@
+include ':calendar'
 include ':base'
 include ':logger'
 include ':net'
