@@ -33,6 +33,7 @@ public class AdapterMeRoomApply extends SimpleRecyclerAdapter<RoomApply, Adapter
 
     public AdapterMeRoomApply(Base base) {
         super(base);
+        getView().removeItemDecorationAt(0);
         this.base = base;
         status = new HashMap<>();
         status.put(1, new Pair<>(base.getContext().getColor(R.color.colorAccent), "待受理"));

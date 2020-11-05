@@ -30,6 +30,7 @@ class NoticeAdapter extends SimpleRecyclerAdapter<Notice, NoticeAdapter.ViewHold
 
     public NoticeAdapter(Base base) {
         super(base);
+        getView().removeItemDecorationAt(0);
     }
 
     @Override

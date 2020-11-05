@@ -29,6 +29,7 @@ public abstract class StatusAdapter<T, VH extends RecyclerView.ViewHolder>
     public StatusAdapter(Base base) {
         super(base);
         this.base = base;
+        getView().removeItemDecorationAt(0);
         status = new HashMap<Integer, Pair<Integer, String>>() {{
             put(1, new Pair<>(base.getContext().getColor(R.color.colorAccent), "待受理"));
             put(2, new Pair<>(base.getContext().getColor(R.color.colorSafe), "已同意"));
