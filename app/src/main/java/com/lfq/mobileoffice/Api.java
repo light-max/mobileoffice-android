@@ -428,4 +428,34 @@ public class Api {
                 .path("year", year)
                 .path("month", month);
     }
+
+    /**
+     * 查询这条通知是否已读
+     *
+     * @param noticeId 通知id
+     * @param success  响应回调接口
+     */
+    public static void isNoticeRead(int noticeId, Net.OnSuccess<Boolean> success) {
+        Net.builder().method(Net.GET).handler(new Handler())
+                .typeOf(Boolean.class)
+                .url("/employee/notice/isread/{noticeId}")
+                .path("noticeId", noticeId)
+                .success(success)
+                .run();
+    }
+
+    /**
+     * 让某条通知变成已读状态
+     *
+     * @param noticeId 通知id
+     * @param success  响应回调接口
+     */
+    public static void noticeRead(int noticeId, Net.OnSuccess<Boolean> success) {
+        Net.builder().method(Net.POST).handler(new Handler())
+                .typeOf(Boolean.class)
+                .url("/employee/notice/read/{noticeId}")
+                .path("noticeId", noticeId)
+                .success(success)
+                .run();
+    }
 }

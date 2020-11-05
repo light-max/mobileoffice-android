@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.lfq.mobileoffice.R;
@@ -84,6 +86,9 @@ public class RoomFragment extends BaseFragment {
 
         // 初始化RecyclerView
         adapter = new RoomAdapter(this);
+        RecyclerView recycler = adapter.getView();
+        recycler.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recycler.removeItemDecorationAt(0);
 
         // 设置下拉刷新事件
         swipe(refreshListener);

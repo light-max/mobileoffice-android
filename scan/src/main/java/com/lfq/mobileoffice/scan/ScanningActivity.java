@@ -1,14 +1,18 @@
 package com.lfq.mobileoffice.scan;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -39,11 +43,16 @@ public class ScanningActivity extends BaseActivity {
     private int nextInt = 0;
     private boolean isFront = false;
     private Handler uiHandler;
+    private IntentIntegrator integrator;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanning);
+
+        integrator = new IntentIntegrator(ScanningActivity.this);
+        integrator.setCameraId(getPreferences(0).getInt("cameraId", 0));
+
         uiHandler = new Handler();
         status = get(R.id.status);
         error = get(R.id.error);
@@ -54,8 +63,6 @@ public class ScanningActivity extends BaseActivity {
         scanning = get(R.id.scanning);
         next = get(R.id.next);
         click(R.id.scanning, v -> {
-            IntentIntegrator integrator = new IntentIntegrator(ScanningActivity.this);
-            integrator.setCameraId(0);
             integrator.initiateScan();
         });
         scanning.callOnClick();
@@ -72,6 +79,30 @@ public class ScanningActivity extends BaseActivity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.set, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.setting) {
+            int cameraId = getPreferences(0).getInt("cameraId", 0);
+            new AlertDialog.Builder(this)
+                    .setTitle("选择摄像头")
+                    .setSingleChoiceItems(R.array.camera, cameraId, (dialog, which) -> {
+                        integrator.setCameraId(which);
+                        getPreferences(0).edit()
+                                .putInt("cameraId", which)
+                                .apply();
+                        dialog.dismiss();
+                    }).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

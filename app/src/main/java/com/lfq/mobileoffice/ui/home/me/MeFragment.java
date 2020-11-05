@@ -45,6 +45,7 @@ public class MeFragment extends BaseFragment {
             Intent intent = new Intent(requireActivity(), SettingActivity.class);
             startActivityForResult(intent, SettingActivity.REQUEST_CODE);
         });
+        swipe(() -> swipe(false));
     }
 
     @Override

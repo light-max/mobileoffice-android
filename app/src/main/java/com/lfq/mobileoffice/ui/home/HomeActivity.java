@@ -68,9 +68,12 @@ public class HomeActivity extends BaseActivity {
      * @param fragment 要显示的fragment
      */
     private void replaceFragment(Fragment fragment) {
+        Fragment currentFragment = map("currentFragment");
+        if (fragment == currentFragment) {
+            return;
+        }
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction();
-        Fragment currentFragment = map("currentFragment");
         if (!fragment.isAdded()) {
             transaction.add(R.id.container, fragment);
         } else {

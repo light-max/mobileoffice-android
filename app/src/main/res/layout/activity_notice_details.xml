@@ -32,6 +32,15 @@
             android:layout_marginTop="8dp"
             tools:text="内容" />
 
+        <TextView
+            android:id="@+id/i_know"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="我知道了"
+            android:textColor="@color/colorAccent" />
+
     </LinearLayout>
 
 </ScrollView>
