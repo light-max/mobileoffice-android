@@ -38,10 +38,10 @@ public class Net {
      */
     public static Map<String, String> mediaType = new HashMap<>();
 
-//    public static final String baseUrl = "http://10.0.2.2:8080";
+    public static final String baseUrl = "http://10.0.2.2:8080";
 //    public static final String baseUrl = "http://192.168.0.107:8080";
 //    public static final String baseUrl = "http://192.168.0.112:8080";
-    public static final String baseUrl = "http://192.168.1.105:8080";
+//    public static final String baseUrl = "http://192.168.1.105:8080";
 
     public static final String POST = "POST";
     public static final String GET = "GET";
