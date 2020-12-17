@@ -49,7 +49,9 @@ public class AttendanceActivity extends BaseActivity implements
         view.setOnDateSelectedListener(this);
         initStatusColor();
         LocalDate currentDate = LocalDate.now(TimeZone.getTimeZone("GMT+8:00").toZoneId());
-        onMonthSelected(currentDate);
+        new Thread(() -> {
+            onMonthSelected(currentDate);
+        }).start();
     }
 
     /**
@@ -85,6 +87,7 @@ public class AttendanceActivity extends BaseActivity implements
                 map(a.getDate(), a);
             }
             view.post(() -> view.updateUI(month));
+//            view.postDelayed(() -> view.updateUI(month), 5000);
         };
         Api.attendance(month.getYear(), month.getMonthValue())
                 .success(success)
