@@ -85,7 +85,10 @@ public class AttendanceActivity extends BaseActivity implements
                 map(a.getDate(), a);
             }
 //            view.post(() -> view.updateUI(month));
-            view.invalidate();
+            view.post(() -> {
+                view.updateUI();
+                view.invalidate();
+            });
 //            view.postDelayed(() -> view.updateUI(month), 5000);
         };
         Api.attendance(month.getYear(), month.getMonthValue())
