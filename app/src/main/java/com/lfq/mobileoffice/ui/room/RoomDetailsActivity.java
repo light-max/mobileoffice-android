@@ -48,7 +48,7 @@ public class RoomDetailsActivity extends BaseDetailsActivity<Room> {
             new AlertDialog.Builder(this)
                     .setTitle(data.getName())
                     .setMessage(data.getDes())
-                    .setNegativeButton("取消",null)
+                    .setNegativeButton("取消", null)
                     .show();
         });
     }
@@ -58,5 +58,10 @@ public class RoomDetailsActivity extends BaseDetailsActivity<Room> {
         text(R.id.name).setText(room.getName());
         text(R.id.location).setText(room.getLocation());
         text(R.id.capacity).setText(String.valueOf(room.getCapacity()));
+        if (room.getCurrentApplyId() > 0) {
+            text(R.id.status, "占用");
+        } else {
+            text(R.id.status, "空闲");
+        }
     }
 }

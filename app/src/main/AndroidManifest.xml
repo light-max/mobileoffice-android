@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="登陆"
+            android:label="移动办公微应用系统 - 员工登陆"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".ui.home.HomeActivity" />

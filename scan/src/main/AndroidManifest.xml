@@ -29,7 +29,7 @@
         </activity>
         <activity
             android:name=".ScanningActivity"
-            android:label="扫码器" />
+            android:label="移动办公微应用系统 - 扫码器" />
         <!-- 调整二维码扫描界面为竖屏 -->
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
